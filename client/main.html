@@ -1,25 +1,649 @@
 <head>
-  <title>simple</title>
+	<title>simple</title>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js"></script>
 </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+<!-- <div class="each-tweet-container">
+	<div class="content">
+		<div class="entry text-center">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae voluptatibus hic blanditiis libero porro aliquid quisquam magni sequi?
+		</div>
+		<div class="tweet-stats text-center">
+			<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">214</span>
+			<span class="fa fa-heart color-red"></span> <span class="heart-number">154</span>
+		</div>
+		<div class="tweet-footer">
+			<div class="row">
+				<div class="col-md-6">@username</div>
+				<div class="col-md-6 text-right">2.10 PM - 5 Apr 16</div>
+			</div>
+		</div>
+	</div>
+</div> -->
 
-  {{> hello}}
-  {{> info}}
+<template name="main">
+	<div class="uni-container container-fluid">
+		{{> Template.dynamic template=currentTemplate }}
+	</div>
+	<!-- <div id="printer">
+		<div class="container-fluid uni-container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="weather-wrapper std-left-margin">
+						<p>
+							<span class="temp-int">59</span>
+							<span class="temp-unit">&deg;</span>
+							<span class="fa fa-cloud"></span>
+							<span class="temp_rain"><span class="fa fa-umbrella"></span>15%</span>
+						</p>
+						<p class="extended-weather">Partly cloudy until tomorrow morning</p>
+					</div>
+					<div class="news-wrapper std-left-margin">
+						<h2>NEWS</h2>
+						<div class="each-news">
+							<div class="news-head">
+								<h4><strong>Lorem Ipsum Dolor Sit Amet</strong></h4>
+							</div>
+							<div class="news-content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas reiciendis provident ipsam, iste impedit quia in doloribus, hic nam, ratione suscipit. Perferendis, iusto quaerat ex fugit dolores dicta maiores enim.</p>
+							</div>
+						</div>
+						<div class="each-news">
+							<div class="news-head">
+								<h4><strong> hic nam, ratione suscipit. Perferendis</strong></h4>
+							</div>
+							<div class="news-content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas reiciendis provident ipsam, iste impedit quia in doloribus, hic nam, ratione suscipit. Perferendis, iusto quaerat ex fugit dolores dicta maiores enim.</p>
+							</div>
+						</div>
+						<div class="each-news">
+							<div class="news-head">
+								<h4><strong> Voluptas reiciendis provident ipsam</strong></h4>
+							</div>
+							<div class="news-content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas reiciendis provident ipsam, iste impedit quia in doloribus, hic nam, ratione suscipit. Perferendis, iusto quaerat ex fugit dolores dicta maiores enim.</p>
+							</div>
+						</div>
+						<div class="each-news">
+							<div class="news-head">
+								<h4><strong>Perferendis, iusto quaerat ex fugit dolores</strong></h4>
+							</div>
+							<div class="news-content">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas reiciendis provident ipsam, iste impedit quia in doloribus, hic nam, ratione suscipit. Perferendis, iusto quaerat ex fugit dolores dicta maiores enim.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 "></div>
+				<div class="col-md-4 ">
+					<div class="twitter-wrapper center-block hidden"  id="twitter-candy">
+						<div class="icon text-center">
+							<span class="fa fa-twitter"></span>
+						</div>
+						<div class="each-tweet-container">
+							<div class="content">
+								<div class="entry text-center">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae voluptatibus hic blanditiis libero porro aliquid quisquam magni sequi?
+								</div>
+								<div class="tweet-stats text-center">
+									<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">214</span>
+									<span class="fa fa-heart color-red"></span> <span class="heart-number">154</span>
+								</div>
+								<div class="tweet-footer">
+									<div class="row">
+										<div class="col-md-6 tweet-username">@username</div>
+										<div class="col-md-6 text-right">2.10 PM - 5 Apr 16</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="each-tweet-container">
+							<div class="content">
+								<div class="entry text-center">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae voluptatibus hic blanditiis libero porro aliquid quisquam magni sequi?
+								</div>
+								<div class="tweet-stats text-center">
+									<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">214</span>
+									<span class="fa fa-heart color-red"></span> <span class="heart-number">154</span>
+								</div>
+								<div class="tweet-footer">
+									<div class="row">
+										<div class="col-md-6 tweet-username">@username</div>
+										<div class="col-md-6 text-right">2.10 PM - 5 Apr 16</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="each-tweet-container">
+							<div class="content">
+								<div class="entry text-center">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae voluptatibus hic blanditiis libero porro aliquid quisquam magni sequi?
+								</div>
+								<div class="tweet-stats text-center">
+									<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">214</span>
+									<span class="fa fa-heart color-red"></span> <span class="heart-number">154</span>
+								</div>
+								<div class="tweet-footer">
+									<div class="row">
+										<div class="col-md-6 tweet-username">@username</div>
+										<div class="col-md-6 text-right">2.10 PM - 5 Apr 16</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="gmail-wrapper std-right-margin" id="gmail-candy">
+						<h1><span class="fa fa-envelope-o"></span> GMail</h1>
+						<div class="each-mail">
+							<div class="mail-subject">
+								<h2>This is your subject line yo!</h2>
+							</div>
+							<div class="mail-prev">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+							</div>
+							<div class="mail-info">
+								By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+							</div>
+						</div>
+						<div class="each-mail">
+							<div class="mail-subject">
+								<h2>This is your subject line yo!</h2>
+							</div>
+							<div class="mail-prev">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+							</div>
+							<div class="mail-info">
+								By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+							</div>
+						</div>
+						<div class="each-mail">
+							<div class="mail-subject">
+								<h2>This is your subject line yo!</h2>
+							</div>
+							<div class="mail-prev">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+							</div>
+							<div class="mail-info">
+								By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 hidden" id="face-buffer"></div>
+				<div class="col-md-1 "></div>
+				<div class="col-md-3 text-right">
+					<div class="clock-wrapper std-right-margin">
+						<div class="clock">
+							<p class="clock-time">3:48</p>
+							<p class="clock-day">Saturday</p>
+							<p class="clock-date">16th April</p>
+						</div>
+					</div>
+					<div class="stock-wrapper">
+						<h2 class="">STOCKS</h2> 
+						<div class="each-stock">
+							<p>
+								<span class="stock-firm-code">COX</span> 
+								<span class="fa fa-caret-up"></span>
+								<span class="stock-currency">$</span>
+								<span class="stock-price">120</span>
+								<span class="stock-ticker-code">AAPL</span>
+							</p>
+						</div>
+						<div class="each-stock">
+							<p>
+								<span class="stock-firm-code">IBM</span> 
+								<span class="fa fa-caret-up"></span>
+								<span class="stock-currency">$</span>
+								<span class="stock-price">149</span>
+								<span class="stock-ticker-code">AAPL</span>
+							</p>
+						</div>
+						<div class="each-stock">
+							<p>
+								<span class="stock-firm-code">IRL</span> 
+								<span class="fa fa-caret-up"></span>
+								<span class="stock-currency">$</span>
+								<span class="stock-price">160</span>
+								<span class="stock-ticker-code">CMLP</span>
+							</p>
+						</div>
+						<div class="each-stock">
+							<p>
+								<span class="stock-firm-code">TYS</span> 
+								<span class="fa fa-caret-up"></span>
+								<span class="stock-currency">$</span>
+								<span class="stock-price">120</span>
+								<span class="stock-ticker-code">AAPL</span>
+							</p>
+						</div>
+						<div class="each-stock">
+							<p>
+								<span class="stock-firm-code">SSL</span> 
+								<span class="fa fa-caret-up"></span>
+								<span class="stock-currency">$</span>
+								<span class="stock-price">120</span>
+								<span class="stock-ticker-code">AAPL</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 text-right hidden" id="stock-candy">
+
+
+				</div>
+			</div>
+		</div>
+	</div> -->
+</template>
+<body>
+	{{> main}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+
+
+<!-- ######################################################################################################################## -->
+
+
+
+
+<template name="twitter">
+	<div class="col-md-3">
+		<br>
+	</div>
+	<div class="col-md-6">
+		<div class="twitter-wrapper center-block"  id="twitter-candy">
+			<div class="icon text-center">
+				<span class="fa fa-twitter"></span>
+			</div>
+			<div class="each-tweet-container">
+				<div class="content">
+					<div class="entry text-center">
+						Congratulations to Abertay Hackers for winning Best Use of Amazon Web Services #RGUHack
+					</div>
+					<div class="tweet-stats text-center">
+						<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">1</span>
+						<span class="fa fa-heart color-red"></span> <span class="heart-number">3</span>
+					</div>
+					<div class="tweet-footer">
+						<div class="row">
+							<div class="col-md-6 tweet-username">@MLHacks</div>
+							<div class="col-md-6 text-right">8:10 AM - 17 Apr 16</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="each-tweet-container">
+				<div class="content">
+					<div class="entry text-center">
+						SUPER EARLY BIRDS for North Dallas Startup Weekend are available for 2 more days! @TexasCode @LaunchDFW @HackDFW
+					</div>
+					<div class="tweet-stats text-center">
+						<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">0</span>
+						<span class="fa fa-heart color-red"></span> <span class="heart-number">2</span>
+					</div>
+					<div class="tweet-footer">
+						<div class="row">
+							<div class="col-md-6 tweet-username">@nodDFW</div>
+							<div class="col-md-6 text-right">8:30 AM - 17 Apr 16</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="each-tweet-container">
+				<div class="content">
+					<div class="entry text-center">
+						TableFinder lets customers reserve specific seats in restaurants, so they know what to expect. #CodeFest
+					</div>
+					<div class="tweet-stats text-center">
+						<span class="fa fa-retweet color-cyan"></span> <span class="retweet-number">0</span>
+						<span class="fa fa-heart color-red"></span> <span class="heart-number">2</span>
+					</div>
+					<div class="tweet-footer">
+						<div class="row">
+							<div class="col-md-6 tweet-username">@MLHacks</div>
+							<div class="col-md-6 text-right">10 AM - 17 Apr 16</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<br>
+	</div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com">Discussions</a></li>
-  </ul>
+
+<!-- ######################################################################################################################## -->
+
+
+<template name="news">
+	<div class="col-md-3">
+		<br>
+	</div>
+	<div class="col-md-6 animated fadeIn">
+		<div class="news-wrapper std-left-margin">
+			<h2>NEWS</h2>
+			{{#each news}}
+			<div class="each-news">
+				<div class="news-head">
+					<h4><strong>{{title}}</strong></h4>
+				</div>
+				<div class="news-content">
+					<p>{{abstract}}</p>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="col-md-3">
+		<br>
+	</div>
+</template>
+<template name="stocks">
+	<div class="col-md-3">
+		<br>
+	</div>
+	<div class="col-md-6 animated fadeIn">
+		<div class="stock-wrapper">
+			<h2 class="text-center">STOCKS</h2>
+			<div class="each-stock green">
+				<p>
+					<span class="stock-firm-code">CMG</span> 
+					<span class="right">
+						<span class="fa fa-caret-up"></span>
+						<span class="stock-currency">$</span>
+						<span class="stock-price">469.29</span>
+					</span>
+				</p>
+			</div>
+			<div class="each-stock red">
+				<p>
+					<span class="stock-firm-code">AAPL</span> 
+					<span class="right">
+						<span class="fa fa-caret-down"></span>
+						<span class="stock-currency">$</span>
+						<span class="stock-price">109.81</span>
+					</span>
+				</p>
+			</div>
+			<div class="each-stock red">
+				<p>
+					<span class="stock-firm-code">CSCO</span> 
+					<span class="right">
+						<span class="fa fa-caret-down"></span>
+						<span class="stock-currency">$</span>
+						<span class="stock-price">27.90</span>
+					</span>
+				</p>
+			</div>
+			<div class="each-stock red">
+				<p>
+					<span class="stock-firm-code">Oil</span> 
+					<span class="right">
+						<span class="fa fa-caret-down"></span>
+						<span class="stock-currency">$</span>
+						<span class="stock-price">40.40</span>
+					</span>
+				</p>
+			</div>
+			<div class="each-stock red">
+				<p>
+					<span class="stock-firm-code">F</span> 
+					<span class="right">
+						<span class="fa fa-caret-down"></span>
+						<span class="stock-currency">$</span>
+						<span class="stock-price">12.94</span>
+					</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<br>
+	</div>
+</template>
+<template name="weather">
+	<div class="animated fadeIn">
+		<div class="col-md-3 "></div>
+		<div class="col-md-6 ">
+			<div class="big-weather-wrapped">
+				<p class="text-center major-view">
+					<span class="temp-int">59</span>
+					<span class="temp-unit">&deg;</span>
+					<span class="fa fa-cloud"></span>
+					<span class="temp_rain"><span class="fa fa-umbrella"></span>15%</span>
+				</p>
+				<p class="extended-weather text-center">Partly cloudy until tomorrow morning</p>
+				<hr>
+				<div class="week-weather text-center" style="padding-left:110px;">
+					<table class="text-center">
+						<tr>
+							<th><span class="day-label">MON</span></th>
+							<th><span class="day-label">TUE</span></th>
+							<th><span class="day-label">WED</span></th>
+							<th><span class="day-label">THR</span></th>
+							<th><span class="day-label">FRI</span></th>
+						</tr>
+						<tr class="temp-row">
+							<td>
+								<span class="days mon">
+									<span class="temp-int">59</span>
+									<span class="temp-unit">&deg;</span>
+								</span>
+							</td>
+							<td> 
+								<span class="days tue">
+									<span class="temp-int">59</span>
+									<span class="temp-unit">&deg;</span>
+								</span>
+							</td>
+							<td>
+								<span class="days wed">
+									<span class="temp-int">59</span>
+									<span class="temp-unit">&deg;</span>
+								</span>
+							</td>
+							<td>
+								<span class="days thurs">
+									<span class="temp-int">59</span>
+									<span class="temp-unit">&deg;</span>
+								</span>
+							</td>
+							<td>
+								<span class="days fri">
+									<span class="temp-int">59</span>
+									<span class="temp-unit">&deg;</span>
+								</span>
+							</td>
+
+						</tr>
+						<tr class="cloud-row">
+							<td class="cloud">
+								<i class="wi wi-day-cloudy"></i> 
+							</td>
+							<td class="cloud">
+								<i class="wi wi-day-cloudy"></i> 
+							</td>
+							<td class="cloud">
+								<i class="wi wi-day-cloudy"></i> 
+							</td>
+							<td class="cloud">
+								<i class="wi wi-day-cloudy"></i> 
+							</td>
+							<td class="cloud">
+								<i class="wi wi-day-cloudy"></i> 
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-3">
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name="mail">
+	<div class="col-md-3">
+		<br>
+	</div>
+	<div class="col-md-6 animated fadeIn">
+		<div class="gmail-wrapper" id="gmail-candy">
+			<h1><span class="fa fa-envelope-o"></span> GMail</h1>
+			<div class="each-mail">
+				<div class="mail-subject">
+					<h2>This is your subject line yo!</h2>
+				</div>
+				<div class="mail-prev">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+				</div>
+				<div class="mail-info">
+					By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+				</div>
+			</div>
+			<div class="each-mail">
+				<div class="mail-subject">
+					<h2>This is your subject line yo!</h2>
+				</div>
+				<div class="mail-prev">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+				</div>
+				<div class="mail-info">
+					By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+				</div>
+			</div>
+			<div class="each-mail">
+				<div class="mail-subject">
+					<h2>This is your subject line yo!</h2>
+				</div>
+				<div class="mail-prev">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptate eveniet eum iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, impedit, reiciendis! </p>
+				</div>
+				<div class="mail-info">
+					By <span class="sender"><strong>John Doe</strong></span> <span class="time">12 Mins Ago</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<br>
+	</div>
+</template>
+<template name="default">
+	<div class="animated fadeIn">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="weather-wrapper std-left-margin">
+					<p>
+						<span class="temp-int">{{temp}}</span>
+						<span class="temp-unit">&deg;</span>
+						<span class="fa fa-cloud"></span>
+						<span class="temp_rain"><span class="fa fa-umbrella"></span>{{hum}}%</span>
+					</p>
+					<p class="extended-weather">{{mess}}</p>
+				</div>
+				<div class="news-wrapper std-left-margin">
+					<h2>NEWS</h2>
+					{{#each news}}
+					<div class="each-news">
+						<div class="news-head">
+							<h4><strong>{{title}}</strong></h4>
+						</div>
+						<div class="news-content">
+							<p>{{abstract}}</p>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="col-md-6"></div>
+			<div class="col-md-3 text-right">
+				<div class="clock-wrapper std-right-margin">
+					<div class="clock">
+						<p class="clock-time"><span id="time"></span></p>
+						<script>
+							function checkTime(i) {
+								if (i < 10) {
+									i = "0" + i;
+								}
+								return i;
+							}
+
+							function startTime() {
+								var today = new Date();
+								var h = today.getHours();
+								var m = today.getMinutes();
+								var s = today.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+    x = document.getElementById('time')
+    if (x) {
+    	document.getElementById('time').innerHTML = h + ":" + m;
+    } else {
+    	return;
+    }
+    t = setTimeout(function () {
+    	startTime()
+    }, 500);
+}
+startTime();
+</script>
+<p class="clock-day">Sunday</p>
+<p class="clock-date">17th April</p>
+</div>
+</div>
+<hr>
+<div class="stock-wrapper">
+	<h2 class="">STOCKS</h2> <!-- Code / up|down / price  / ticker-->
+	<div class="each-stock">
+		<p>
+			<span class="stock-firm-code">COX</span> 
+			<span class="fa fa-caret-up"></span>
+			<span class="stock-currency">$</span>
+			<span class="stock-price">120</span>
+		</p>
+	</div>
+	<div class="each-stock">
+		<p>
+			<span class="stock-firm-code">IBM</span> 
+			<span class="fa fa-caret-up"></span>
+			<span class="stock-currency">$</span>
+			<span class="stock-price">149</span>
+		</p>
+	</div>
+	<div class="each-stock">
+		<p>
+			<span class="stock-firm-code">IRL</span> 
+			<span class="fa fa-caret-up"></span>
+			<span class="stock-currency">$</span>
+			<span class="stock-price">160</span>
+		</p>
+	</div>
+	<div class="each-stock">
+		<p>
+			<span class="stock-firm-code">TYS</span> 
+			<span class="fa fa-caret-up"></span>
+			<span class="stock-currency">$</span>
+			<span class="stock-price">120</span>
+		</p>
+	</div>
+	<div class="each-stock">
+		<p>
+			<span class="stock-firm-code">SSL</span> 
+			<span class="fa fa-caret-up"></span>
+			<span class="stock-currency">$</span>
+			<span class="stock-price">120</span>
+		</p>
+	</div>
+</div>
+</div>
+<div class="col-md-2 text-right hidden" id="stock-candy">
+
+
+</div>
+</div>
+</div>
 </template>
